@@ -47,7 +47,7 @@ router.get("/:id", async (req: express.Request, res: express.Response) => {
     );
     res.status(200).json(foundRestaurant);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).send(error);
   }
 });
 
@@ -73,7 +73,7 @@ router.post(
           `Restaurant ${newlyCreatedRestaurant.name} with id ${newlyCreatedRestaurant._id} created sucessfully`
         );
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).send(error);
     }
   }
 );
@@ -91,7 +91,7 @@ router.patch(
       );
       res.status(200).json(updatedRestaurant);
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).send(error);
     }
   }
 );
@@ -104,7 +104,7 @@ router.delete("/:id", async (req: express.Request, res: express.Response) => {
       .status(200)
       .send(`Restaurant with id ${req.params.id} deleted sucessfully`);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).send(error);
   }
 });
 
